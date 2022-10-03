@@ -16,7 +16,9 @@
   "scripts": {
     "start": "node dist/app.js",
     "build": "tsc -p .",
-    "dev": "nodemon --ignore \"./frontend\" --watch \"*.ts\" --exec \"ts-node\" index.ts"
+    "dev:backend": "nodemon --ignore \"./frontend\" --watch \"*.ts\" --exec \"ts-node\" index.ts",
+    "dev:frontend": "cd frontend && yarn dev",
+    "dev": "concurrently \"yarn dev:backend\" \"yarn dev:frontend\""
   },
   "dependencies": {
     "knex": "^2.2.0",
